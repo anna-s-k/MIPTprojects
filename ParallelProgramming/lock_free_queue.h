@@ -119,20 +119,6 @@ void lock_free_queue<T>::delete_nodes(node_t *nodes, node_t* cur_head){
     to_be_deleted.store(cur_head);
 }
 
-/*template <class T>
-void lock_free_queue<T>::try_reclaim(node_t* cur_head){
-    if (threads_in_pop.load() == 1){
-        node_t* nodes_to_delete = to_be_deleted.load();
-        threads_in_pop.fetch_sub(1);
-        if (!threads_in_pop.load()){//настал момент, когда все вышли
-            delete_nodes(nodes_to_delete, cur_head);
-        }
-
-    } else{
-        threads_in_pop.fetch_sub(1);
-    }
-}*/
-
 
 
 
